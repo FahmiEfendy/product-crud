@@ -6,6 +6,9 @@ use App\Http\Controllers\ProductController;
 // GET All Products
 Route::get('/products', [ProductController::class, 'index']);
 
+// GET Product Detail
+Route::get('/product/{id}', [ProductController::class, 'show']);
+
 // POST Create Product
 Route::post('/product', [ProductController::class, 'store']);
 

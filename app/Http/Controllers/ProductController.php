@@ -55,8 +55,18 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
-    }
+        // check if product exist
+        $product = Product::find($id);
+        if (!$product) {
+            return response()->json([
+                'message' => 'Product not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'message' => 'Success',
+            'data' => $product
+        ], 200);    }
 
     /**
      * Show the form for editing the specified resource.
